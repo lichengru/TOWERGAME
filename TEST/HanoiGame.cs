@@ -13,19 +13,31 @@ namespace TEST
 
         public void Setup()
         {
-            //輸入高度
-            Console.WriteLine("請輸入河內塔的高度：");
-            string input = Console.ReadLine();
-             disk = int.Parse(input);
+            try
+            {
+                //輸入高度
+                Console.WriteLine("請輸入河內塔的高度：");
+                string input = Console.ReadLine();
+                disk = int.Parse(input);
 
-            Console.WriteLine("起始地的柱子:(1,2,3)");
-            input = Console.ReadLine();
-             from = int.Parse(input);
+                Console.WriteLine("起始地的柱子:(1,2,3)");
+                input = Console.ReadLine();
+                from = int.Parse(input);
 
-            Console.WriteLine("目的地的柱子：(1,2,3)");
-            input = Console.ReadLine();
-             to = int.Parse(input);
-
+                Console.WriteLine("目的地的柱子：(1,2,3)");
+                input = Console.ReadLine();
+                to = int.Parse(input);
+            }
+            catch(FormatException exp)
+            {
+                Console.WriteLine("輸入錯誤請輸入數字");
+                Setup();
+            }
+            catch(OverflowException exp)
+            {
+                Console.WriteLine("爆炸了QAQ,請重新輸入");
+                Setup();
+            }
             #region // 取得 第三柱子
             /* 例如 輸入 1 3  得到  2
              *      輸入 1 2  得到  3
@@ -42,7 +54,7 @@ namespace TEST
                 }
             }
             #endregion
-            Hanoi(disk, from, to, aux);
+            
         }
         public void Paly()
         {
