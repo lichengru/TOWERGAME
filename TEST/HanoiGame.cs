@@ -68,18 +68,25 @@ namespace TEST
                     Console.WriteLine("==============================");
                     Setup();
                 }
+                else if(from>3||from<0)
+                {
+                    Console.WriteLine("輸入錯誤!! 起始點只能輸入1~3。");
+                    Console.WriteLine("==============================");
+                    Setup();
+                }
+                else if(to>3||to<1)
+                {
+                    Console.WriteLine("輸入錯誤!! 目的地只能輸入1~3。");
+                    Console.WriteLine("==============================");
+                    Setup();
+                }
                 else if (from == to)
                 {
                     Console.WriteLine("起始點不能和目的地一樣啦!!");
                     Console.WriteLine("==============================");
                     Setup();
                 }
-                else
-                {
-                    Console.WriteLine("輸入錯誤!! 請重頭開始輸入。");
-                    Console.WriteLine("==============================");
-                    Setup();
-                }
+               
             }
             Hanoi(disk, from, to, aux);
             Exit();
