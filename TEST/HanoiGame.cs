@@ -64,7 +64,7 @@ namespace TEST
             {
                 if (disk < 1)
                 {
-                    Console.WriteLine("最低也要有一層才能玩!!");
+                    Console.WriteLine("最低要有一層才能玩!!");
                     Console.WriteLine("==============================");
                     Setup();
                 }
@@ -82,6 +82,24 @@ namespace TEST
                 }
             }
             Hanoi(disk, from, to, aux);
+            Exit();
+        }
+        public void Exit()
+        {
+            Console.WriteLine("=================================");
+            Console.WriteLine("是否在玩一次? <Y/N>");
+             string input = Console.ReadLine();
+            string x= input;
+            if (x=="Y")
+            {
+                Setup();
+                Paly();
+            }
+            else if(x=="N")
+            {
+                Console.WriteLine("感謝你的遊玩");
+            }
+
         }
 
         public static void Hanoi(int Disk, int Src, int Dest, int Aux)
