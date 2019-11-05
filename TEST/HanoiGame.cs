@@ -19,23 +19,23 @@ namespace TEST
                 Console.WriteLine("請輸入河內塔的高度：");
                 string input = Console.ReadLine();
                 disk = int.Parse(input);
-                
-               
+
+
                 Console.WriteLine("起始地的柱子:(1,2,3)");
                 input = Console.ReadLine();
                 from = int.Parse(input);
-              
+
                 Console.WriteLine("目的地的柱子：(1,2,3)");
                 input = Console.ReadLine();
                 to = int.Parse(input);
-                
+
             }
-            catch (FormatException )
+            catch (FormatException)
             {
                 Console.WriteLine("輸入錯誤請輸入數字");
                 Setup();
             }
-            catch (OverflowException )
+            catch (OverflowException)
             {
                 Console.WriteLine("爆炸了QAQ,請重新輸入");
                 Setup();
@@ -60,7 +60,7 @@ namespace TEST
         }
         public void Paly()
         {
-            while (from > 3 || from < 1||to<1||to>3||from==to||disk<1)
+            while (from > 3 || from < 1 || to < 1 || to > 3 || from == to || disk < 1)
             {
                 if (disk < 1)
                 {
@@ -68,13 +68,13 @@ namespace TEST
                     Console.WriteLine("==============================");
                     Setup();
                 }
-                else if(from==to)
+                else if (from == to)
                 {
                     Console.WriteLine("起始點不能和目的地一樣啦!!");
                     Console.WriteLine("==============================");
                     Setup();
                 }
-                else 
+                else
                 {
                     Console.WriteLine("輸入錯誤!! 請重頭開始輸入。");
                     Console.WriteLine("==============================");
@@ -88,18 +88,30 @@ namespace TEST
         {
             Console.WriteLine("=================================");
             Console.WriteLine("是否在玩一次? <Y/N>");
-             string input = Console.ReadLine();
-            string x= input;
-            if (x=="Y")
+            try
             {
-                Setup();
-                Paly();
+                string input = Console.ReadLine();
+                string x = input;
+                if (x == "Y" || x == "y")
+                {
+                    Setup();
+                    Paly();
+                }
+                else if (x == "N" || x == "n")
+                {
+                    Console.WriteLine("感謝你的遊玩");
+                }
+                else
+                {
+                    Console.WriteLine("輸入錯誤請輸入<Y/N>");
+                    Exit();
+                }
             }
-            else if(x=="N")
+            catch (Exception)
             {
-                Console.WriteLine("感謝你的遊玩");
+                Console.WriteLine("輸入錯誤，請重新輸入");
+                Exit();
             }
-
         }
 
         public static void Hanoi(int Disk, int Src, int Dest, int Aux)
