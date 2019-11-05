@@ -66,35 +66,31 @@ namespace TEST
                 {
                     Console.WriteLine("最低要有一層才能玩，請重新開始!");
                     Console.WriteLine("============================================");
-                    Setup();
                 }
                 else if(from>3||from<0)
                 {
                     Console.WriteLine("輸入錯誤，起始點只能輸入1~3，請重新開始。");
                     Console.WriteLine("============================================");
-                    Setup();
                 }
                 else if(to>3||to<1)
                 {
                     Console.WriteLine("輸入錯誤，目的地只能輸入1~3，請重新開始。");
                     Console.WriteLine("============================================");
-                    Setup();
                 }
                 else if (from == to)
                 {
                     Console.WriteLine("起始點不能和目的地一樣，請重新開始!!");
-                    Console.WriteLine("============================================");
-                    Setup();
+                    Console.WriteLine("============================================");                    
                 }
-               
+                Setup();
             }
             Hanoi(disk, from, to, aux);
+            Console.WriteLine("==================遊玩結束==================");
+            Console.WriteLine("是否在玩一次? <Y/N>");
             Exit();
         }
         public void Exit()
-        {
-            Console.WriteLine("==================遊玩結束==================");
-            Console.WriteLine("是否在玩一次? <Y/N>");
+        {            
             try
             {
                 string input = Console.ReadLine();
