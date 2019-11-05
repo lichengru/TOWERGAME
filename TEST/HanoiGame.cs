@@ -19,21 +19,23 @@ namespace TEST
                 Console.WriteLine("請輸入河內塔的高度：");
                 string input = Console.ReadLine();
                 disk = int.Parse(input);
-
+                
+               
                 Console.WriteLine("起始地的柱子:(1,2,3)");
                 input = Console.ReadLine();
                 from = int.Parse(input);
-
+              
                 Console.WriteLine("目的地的柱子：(1,2,3)");
                 input = Console.ReadLine();
                 to = int.Parse(input);
+                
             }
-            catch(FormatException exp)
+            catch (FormatException )
             {
                 Console.WriteLine("輸入錯誤請輸入數字");
                 Setup();
             }
-            catch(OverflowException exp)
+            catch (OverflowException )
             {
                 Console.WriteLine("爆炸了QAQ,請重新輸入");
                 Setup();
@@ -43,7 +45,7 @@ namespace TEST
              *      輸入 1 2  得到  3
              *      輸入 2 3  得到  1
              */
-            
+
             int[] temp = { 1, 2, 3 };
             foreach (int item in temp)
             {
@@ -54,14 +56,34 @@ namespace TEST
                 }
             }
             #endregion
-            
+
         }
         public void Paly()
         {
-
+            while (from > 3 || from < 1||to<1||to>3||from==to||disk<1)
+            {
+                if (disk < 1)
+                {
+                    Console.WriteLine("最低也要有一層才能玩!!");
+                    Console.WriteLine("==============================");
+                    Setup();
+                }
+                else if(from==to)
+                {
+                    Console.WriteLine("起始點不能和目的地一樣啦!!");
+                    Console.WriteLine("==============================");
+                    Setup();
+                }
+                else 
+                {
+                    Console.WriteLine("輸入錯誤!! 請重頭開始輸入。");
+                    Console.WriteLine("==============================");
+                    Setup();
+                }
+            }
             Hanoi(disk, from, to, aux);
         }
-        
+
         public static void Hanoi(int Disk, int Src, int Dest, int Aux)
         {
             if (Disk == 1)
