@@ -10,9 +10,9 @@ namespace TEST
         int from;
         int to;
         int aux = 0;
-
         public void Setup()
         {
+            Console.WriteLine("===============歡迎遊玩河內塔===============");
             try
             {
                 //輸入高度
@@ -64,26 +64,26 @@ namespace TEST
             {
                 if (disk < 1)
                 {
-                    Console.WriteLine("最低要有一層才能玩!!");
-                    Console.WriteLine("==============================");
+                    Console.WriteLine("最低要有一層才能玩，請重新開始!");
+                    Console.WriteLine("============================================");
                     Setup();
                 }
                 else if(from>3||from<0)
                 {
-                    Console.WriteLine("輸入錯誤!! 起始點只能輸入1~3。");
-                    Console.WriteLine("==============================");
+                    Console.WriteLine("輸入錯誤，起始點只能輸入1~3，請重新開始。");
+                    Console.WriteLine("============================================");
                     Setup();
                 }
                 else if(to>3||to<1)
                 {
-                    Console.WriteLine("輸入錯誤!! 目的地只能輸入1~3。");
-                    Console.WriteLine("==============================");
+                    Console.WriteLine("輸入錯誤，目的地只能輸入1~3，請重新開始。");
+                    Console.WriteLine("============================================");
                     Setup();
                 }
                 else if (from == to)
                 {
-                    Console.WriteLine("起始點不能和目的地一樣啦!!");
-                    Console.WriteLine("==============================");
+                    Console.WriteLine("起始點不能和目的地一樣，請重新開始!!");
+                    Console.WriteLine("============================================");
                     Setup();
                 }
                
@@ -93,7 +93,7 @@ namespace TEST
         }
         public void Exit()
         {
-            Console.WriteLine("=================================");
+            Console.WriteLine("==================遊玩結束==================");
             Console.WriteLine("是否在玩一次? <Y/N>");
             try
             {
@@ -106,7 +106,7 @@ namespace TEST
                 }
                 else if (x == "N" || x == "n")
                 {
-                    Console.WriteLine("感謝你的遊玩");
+                    Console.WriteLine("================感謝你的遊玩================");
                 }
                 else
                 {
