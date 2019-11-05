@@ -43,7 +43,7 @@ namespace TEST
              *      輸入 1 2  得到  3
              *      輸入 2 3  得到  1
              */
-            int aux = 0;
+            
             int[] temp = { 1, 2, 3 };
             foreach (int item in temp)
             {
