@@ -68,7 +68,7 @@ namespace TOWER
                     Console.WriteLine("最低要有一層才能玩，請重新開始!");
                     Console.WriteLine("============================================");
                 }
-                else if(from>3||from<0)
+                else if(from>3||from<1)
                 {
                     Console.WriteLine("輸入錯誤，起始點只能輸入1~3，請重新開始。");
                     Console.WriteLine("============================================");
